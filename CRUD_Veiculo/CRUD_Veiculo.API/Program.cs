@@ -1,6 +1,6 @@
-using CRUD_Veiculo.API.Data.Context;
+using CRUD_Veiculo.API.Data.Repository;
+using CRUD_Veiculo.API.Data.Repository.Interface;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<CRUD_Veiculo.API.Data.Context.CRUDContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddScoped<IVeiculoRepository, VeiculoRepository>();
 
 builder.Services.AddControllers();
 builder.Services.AddHttpClient();

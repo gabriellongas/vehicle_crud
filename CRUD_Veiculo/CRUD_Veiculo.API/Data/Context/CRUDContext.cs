@@ -10,7 +10,7 @@ namespace CRUD_Veiculo.API.Data.Context
         {
         }
 
-        public virtual DbSet<Veiculo> Veiculos { get; set; }
+        public virtual DbSet<Veiculo> Veiculo { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
