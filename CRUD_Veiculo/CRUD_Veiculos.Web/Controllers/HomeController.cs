@@ -24,10 +24,46 @@ namespace CRUD_Veiculos.Web.Controllers
             return View(lista);
         }
 
-        public IActionResult Privacy()
+        public IActionResult Create()
         {
-            return View();
+            return View(new Veiculo());
         }
+
+        public IActionResult AdicionarVeiculo(Veiculo veiculo)
+        {
+            _apiClient.Create(veiculo);
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult Edit(int id)
+        {
+            var veiculo = _apiClient.GetById(id);
+
+            return View(veiculo);
+        }
+
+        public IActionResult EditarVeiculo(Veiculo veiculo)
+        {
+            _apiClient.Update(veiculo);
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult Details(int id)
+        {
+            var veiculo = _apiClient.GetById(id);
+
+            return View(veiculo);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            _apiClient.Delete(id);
+
+            return RedirectToAction("Index", "Home");
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

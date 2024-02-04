@@ -1,0 +1,68 @@
+﻿@model Veiculo
+
+@{
+    ViewBag.Title = "Editar veículo";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+@Html.AntiForgeryToken()
+
+<form asp-action="EditarVeiculo" asp-controller="Home" method="post" div class="form-horizontal">
+    <h4>Veículo</h4>
+    <hr />
+
+    <input asp-for="Id" type="hidden" value="@Model.Id"/>
+
+    <div class="form-group">
+        <label for="Chassi">Chassi</label>
+        <div class="col-md-10">
+            <input asp-for="Chassi" value="@Model.Chassi" placeholder="Digite o número do chassi" />
+            <span asp-validation-for="Chassi"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Montadora">Montadora</label>
+        <div class="col-md-10">
+            <input asp-for="Montadora" value="@Model.Montadora" placeholder="Digite o nome da montadora" />
+            <span asp-validation-for="Montadora"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Moodelo">Modelo</label>
+        <div class="col-md-10">
+            <input asp-for="Modelo" value="@Model.Modelo" placeholder="Digite o nome do modelo" />
+            <span asp-validation-for="Modelo"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Placa">Placa</label>
+        <div class="col-md-10">
+            <input asp-for="Placa" value="@Model.Placa" placeholder="Digite o número da placa" />
+            <span asp-validation-for="Placa"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="AnoFabricacao">Ano de Fabricação</label>
+        <div class="col-md-10">
+            <input asp-for="AnoFabricacao" value="@Model.AnoFabricacao" type="number" placeholder="Digite o ano de fabricação" />
+            <span asp-validation-for="AnoFabricacao"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="submit" class="btn btn-success">Editar Veículo</button>
+        </div>
+    </div>
+</form>
+
+
+<div>
+    @Html.ActionLink("Voltar para a Lista", "Index")
+</div>

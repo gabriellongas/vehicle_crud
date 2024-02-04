@@ -32,7 +32,7 @@ namespace CRUD_Veiculo.API.Controllers
         }
 
         [HttpGet]
-        [Route("GetVeiculoById")]
+        [Route("GetVeiculoById/{id}")]
         public async Task<ActionResult<Veiculo>> GetVeiculoById(int id)
         {
             try
@@ -71,7 +71,7 @@ namespace CRUD_Veiculo.API.Controllers
         }
 
         [HttpDelete]
-        [Route("DeleteVeiculo")]
+        [Route("DeleteVeiculo/{id}")]
         public async Task<ActionResult<int>> DeleteVeiculo(int id)
         {
             try
