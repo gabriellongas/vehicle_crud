@@ -1,7 +1,11 @@
+using CRUD_Veiculos.Web.API.Interface;
+using Radar.Web.Api;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IApiClient, ApiClient>();
 
 var app = builder.Build();
 

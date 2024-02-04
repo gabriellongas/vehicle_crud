@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace CRUD_Veiculo.API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class VeiculosController : ControllerBase
     {
         private readonly ILogger<VeiculosController> _logger;

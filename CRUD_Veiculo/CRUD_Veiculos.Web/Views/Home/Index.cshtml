@@ -1,8 +1,41 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<Veiculo>
+
+@{
+    ViewBag.Title = "Veículos";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h2>@ViewBag.Title</h2>
+
+@Html.ActionLink("Adicionar Novo", "Create")
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Chassi</th>
+            <th>Montadora</th>
+            <th>Modelo</th>
+            <th>Placa</th>
+            <th>Ano de Fabricação</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var veiculo in Model)
+        {
+            <tr>
+                <td>@veiculo.Chassi</td>
+                <td>@veiculo.Montadora</td>
+                <td>@veiculo.Modelo</td>
+                <td>@veiculo.Placa</td>
+                <td>@veiculo.AnoFabricacao</td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = veiculo.Id }) |
+                    @Html.ActionLink("Detalhes", "Details", new { id = veiculo.Id }) |
+                    @Html.ActionLink("Deletar", "Delete", new { id = veiculo.Id }, new { onclick = "return confirm('Are you sure?');" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
