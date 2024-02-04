@@ -15,3 +15,7 @@ Bem-vindo(a) ao repositório do Projeto CRUD de Veículos. O objetivo deste proj
 - **Backend:** C#.
 - **Banco de Dados:** SQL Server.
 - **Estilização:** Bootstrap e CSS.
+
+```
+  Os arquivos SQL sobre a criação do banco de dados e das procedures se encontra na pasta "SQL Files"
+```
