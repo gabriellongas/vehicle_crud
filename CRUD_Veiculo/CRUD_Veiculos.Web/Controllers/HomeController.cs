@@ -1,3 +1,4 @@
+
 using CRUD_Veiculos.Web.API.Interface;
 using CRUD_Veiculos.Web.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +10,7 @@ namespace CRUD_Veiculos.Web.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IApiClient _apiClient;
+
 
         public HomeController(ILogger<HomeController> logger, IApiClient apiClient)
         {
@@ -24,6 +26,7 @@ namespace CRUD_Veiculos.Web.Controllers
             return View(lista);
         }
 
+        [Route("/Home/Create")]
         public IActionResult Create()
         {
             return View(new Veiculo());
@@ -31,11 +34,15 @@ namespace CRUD_Veiculos.Web.Controllers
 
         public IActionResult AdicionarVeiculo(Veiculo veiculo)
         {
+            if (!ModelState.IsValid) { 
+                return null;
+            }
             _apiClient.Create(veiculo);
 
             return RedirectToAction("Index", "Home");
         }
 
+        [Route("/Home/Edit/{id}")]
         public IActionResult Edit(int id)
         {
             var veiculo = _apiClient.GetById(id);
@@ -50,6 +57,7 @@ namespace CRUD_Veiculos.Web.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        [Route("/Home/Details/{id}")]
         public IActionResult Details(int id)
         {
             var veiculo = _apiClient.GetById(id);
@@ -57,10 +65,10 @@ namespace CRUD_Veiculos.Web.Controllers
             return View(veiculo);
         }
 
+        [Route("/Home/Delete/{id}")]
         public IActionResult Delete(int id)
         {
             _apiClient.Delete(id);
-
             return RedirectToAction("Index", "Home");
         }
 

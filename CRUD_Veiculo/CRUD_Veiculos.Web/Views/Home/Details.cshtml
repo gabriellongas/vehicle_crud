@@ -1,15 +1,13 @@
 ﻿@model Veiculo
 
 @{
-    ViewBag.Title = "Inpecionar Veículo";
+    ViewBag.Title = "Detalhes do Veículo";
 }
 
-<h2>@ViewBag.Title</h2>
+<h2 class="subheader-text">@ViewBag.Title</h2>
 
-<h3>Detalhes do veículo</h3>
 <div>
-    <h4>Veículo</h4>
-    <hr />
+    
     <dl class="dl-horizontal">
         <dt>Chassi</dt>
         <dd>@Model.Chassi</dd>
@@ -30,6 +28,6 @@
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        @Html.ActionLink("Cancelar", "Index")
+        <a class="btn btn-secondary" href="javascript:history.back()"><i class='bx bx-arrow-back'></i> Retornar</a>
     }
 </div>

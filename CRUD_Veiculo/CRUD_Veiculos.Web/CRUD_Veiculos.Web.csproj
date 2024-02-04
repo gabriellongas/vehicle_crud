@@ -10,4 +10,8 @@
     <Folder Include="API\Interface\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AspNetCoreHero.ToastNotification" Version="1.1.0" />
+  </ItemGroup>
+
 </Project>

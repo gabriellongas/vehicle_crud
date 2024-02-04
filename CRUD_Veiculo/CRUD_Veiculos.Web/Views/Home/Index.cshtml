@@ -4,9 +4,9 @@
     ViewBag.Title = "Veículos";
 }
 
-<h2>@ViewBag.Title</h2>
+<h2 class="subheader-text">@ViewBag.Title</h2>
 
-@Html.ActionLink("Adicionar Novo", "Create", "Home", new { @class = "btn btn-info" })
+<a class="btn btn-success" href="/Home/Create"><i class='bx bx-plus'></i> Novo Veículo</a>
 
 <table class="table">
     <thead>
@@ -16,7 +16,7 @@
             <th>Modelo</th>
             <th>Placa</th>
             <th>Ano de Fabricação</th>
-            <th>Ações</th>
+            <th>Editar | Detalhes | Deletar</th>
         </tr>
     </thead>
     <tbody>
@@ -29,9 +29,9 @@
                 <td>@veiculo.Placa</td>
                 <td>@veiculo.AnoFabricacao</td>
                 <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = veiculo.Id }) |
-                    @Html.ActionLink("Detalhes", "Details", new { id = veiculo.Id }) |
-                    @Html.ActionLink("Deletar", "Delete", new { id = veiculo.Id }, new { onclick = "return confirm('Are you sure?');" })
+                    <a href="/Home/Edit/@veiculo.Id" class="btn btn-primary"><i class='bx bxs-edit'></i></a> |
+                    <a href="/Home/Details/@veiculo.Id" class="btn btn-secondary"><i class='bx bx-search'></i></a> |
+                    <a href="/Home/Delete/@veiculo.Id" class="btn btn-danger" onclick="return confirm('Tem certeza que gostaria de deletar esse item?')"><i class='bx bxs-trash'></i></a>
                 </td>
             </tr>
         }
